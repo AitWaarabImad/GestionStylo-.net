@@ -1,0 +1,61 @@
+﻿@model DAL.Entities.User
+
+<h2>Inscription</h2>
+<form method="post" asp-controller="User" asp-action="Signin">
+    <div>
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" asp-for="UserName" required />
+    </div>
+    <div>
+        <label for="password">Mot de passe :</label>
+        <input type="password" asp-for="UserPassword" required />
+    </div>
+    <div>
+        <label for="email">Email :</label>
+        <input type="email" asp-for="UserEmail" required />
+    </div>
+    <div>
+        <button type="submit">S'inscrire</button>
+    </div>
+</form>
+
+<style>
+    form {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        button:hover {
+            background-color: #45a049;
+        }
+</style>

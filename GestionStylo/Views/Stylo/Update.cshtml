@@ -1,0 +1,46 @@
+﻿@model DAL.Entities.Stylo
+
+<h2>Mettre à jour un Stylo</h2>
+
+<form asp-action="Update" method="post">
+    <div class="form-group">
+        <label>Nom du Stylo:</label>
+        <input type="text" asp-for="Nom" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label>Marque:</label>
+        <select asp-for="NomMarque" class="form-control" required>
+            <option value="">Sélectionnez une marque</option>
+            <option value="bic">bic</option>
+            <option value="pilote">pilote</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Type:</label>
+        <select asp-for="NomType" class="form-control" required>
+            <option value="">Sélectionnez un type</option>
+            <option value="plume">plume</option>
+            <option value="ancre">ancre</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Nom du Stylo:</label>
+        <input type="number" asp-for="Prix" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label>Image du Stylo:</label>
+        <input type="text" asp-for="Photo" class="form-control" required>
+    </div>
+
+
+    <br />
+
+
+    <button type="submit" class="btn btn-success">Mettre à jour</button>
+    @* <a asp-action="Update" asp-controller="Stylo" class="btn btn-success">Mettre à jour</a> *@
+    <a asp-action="CrudList" asp-controller="Stylo" class="btn btn-primary">Retour</a>
+</form>

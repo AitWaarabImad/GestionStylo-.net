@@ -1,0 +1,43 @@
+﻿@model DAL.Entities.Stylo
+
+<h2>Ajouter un Stylo</h2>
+
+<form action="Add" method="post">
+    <div class="form-group">
+        <label>Nom du Stylo:</label>
+        <input type="text" asp-for="Nom" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label>Marque:</label>
+        <select asp-for="NomMarque" class="form-control" required>
+            <option value="">Sélectionnez une marque</option>
+            <option value="bic">bic</option>
+            <option value="pilote">pilote</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Type:</label>
+        <select asp-for="NomType" class="form-control" required>
+            <option value="">Sélectionnez un type</option>
+            <option value="plume">plume</option>
+            <option value="ancre">ancre</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Prix du Stylo:</label>
+        <input type="number" asp-for="Prix" class="form-control" required>
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Image du Stylo:</label>
+        <input type="text" name="Photo" class="form-control-file" required>
+    </div>
+    <br />
+    
+
+    <button type="submit" class="btn btn-success">Ajouter</button>
+    <a asp-action="CrudList" asp-controller="Stylo" class="btn btn-primary">Retour</a>
+</form>

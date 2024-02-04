@@ -1,0 +1,35 @@
+﻿@model List<DAL.Entities.Stylo>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h2>Liste des Stylos</h2>
+<br />
+<a href="Stylo/Add" class="btn btn-primary">Ajouter un stylo</a>
+<br />
+@foreach (var stylo in Model)
+{
+
+
+    <br />
+    <div class="card" style="width: 18rem;">
+        <img src="@stylo.Photo" class="card-img-top" alt="Stylo Image">
+        <div class="card-body">
+            <h5 class="card-title">@stylo.Nom</h5>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Prix : @stylo.Prix DHS</li>
+                <li class="list-group-item">Marque : @stylo.NomMarque</li>
+                <li class="list-group-item">Type : @stylo.NomType</li>
+
+            </ul>
+            <div class="d-grid gap-2">
+                <a href="Stylo/Update/@stylo.Id" class="btn btn-primary">Update</a>
+
+                <form class="d-grid gap-2" asp-action="Delete" method="post" asp-route-id="@stylo.Id" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce stylo?')">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+}
