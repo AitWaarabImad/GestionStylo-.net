@@ -5,7 +5,9 @@
 
 <h2>Liste des Stylos</h2>
 <br />
-<a href="Stylo/Add" class="btn btn-primary">Ajouter un stylo</a>
+@if (User.Identity.IsAuthenticated && User.Identity.Name == "Admin")
+{
+    <a asp-action="Add" asp-controller="Stylo" class="btn btn-primary">Ajouter un stylo</a>}
 <br />
 @foreach (var stylo in Model.stylos)
 {
@@ -23,17 +25,19 @@
                 <li class="list-group-item">Type : @stylo.NomType</li>
 
             </ul>
-            <div class="d-grid gap-2">
-                <a href="Stylo/Update/@stylo.Id" class="btn btn-primary">Update</a>
-
+            @if (User.Identity.IsAuthenticated && User.Identity.Name == "Admin")
+            {
+                <div class="d-grid gap-2">
+                    <a href="Stylo/Update/@stylo.Id" class="btn btn-primary">Update</a>
                 <form class="d-grid gap-2" asp-action="Delete" method="post" asp-route-id="@stylo.Id" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce stylo?')">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
+            }
         </div>
     </div>
     <br />
 }
 
-<a asp-controller="User" asp-action="Logout" class="btn btn-danger mb-5" >Déconnexion</a>
+
 

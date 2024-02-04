@@ -1,6 +1,7 @@
 ﻿using BLL;
 using BLL.Dto;
 using DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing.Text;
 
@@ -14,23 +15,35 @@ namespace GestionStylo.Controllers
             this.styloService = styloService;
         }
 
+
+        [Authorize(Roles = "Admin,User")]
         public IActionResult Index(User user)
         {
             
             return View(styloService.GetAll());
   
         }
+
+
+
+        [Authorize(Roles = "Admin")]
         public IActionResult CrudList()
         {
 
             return View(styloService.GetAll());
 
         }
+
+
+        [Authorize(Roles = "Admin")]
         [HttpGet] 
         public IActionResult Add() 
         {
             return View();
         }
+
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Add(Stylo stylo)
         {
@@ -39,6 +52,8 @@ namespace GestionStylo.Controllers
             return RedirectToAction("Index");
         }
 
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Delete(Stylo stylo)
         {
@@ -46,12 +61,17 @@ namespace GestionStylo.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Update(int id)
         {
 
             return View(styloService.GetStylo(id));
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Update(Stylo stylo)
         {

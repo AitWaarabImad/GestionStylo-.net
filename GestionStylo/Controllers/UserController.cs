@@ -19,7 +19,7 @@ namespace GestionStylo.Controllers
             _styloService = styloService;
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         [HttpGet]
         public IActionResult Index(User user)
         {
@@ -70,16 +70,36 @@ namespace GestionStylo.Controllers
             User userResult = _userService.Login(login);
             if (userResult != null)
             {
-                var claims = new List<Claim>
+                if (userResult.UserName.Equals("Admin") && userResult.UserPassword.Equals("Admin"))
+                {
+                    var claims = new List<Claim>
+                {
+                new Claim(ClaimTypes.Name, userResult.UserName),
+                new Claim(ClaimTypes.Role, "Admin")
+                };
+
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity);
+
+                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal).Wait();
+                
+
+            }
+                else
+                {
+
+
+                    var claims = new List<Claim>
                 {
                 new Claim(ClaimTypes.Name, userResult.UserName),
                 new Claim(ClaimTypes.Role, "User")
                 };
 
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity);
 
-                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal).Wait();
+                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal).Wait();
+                }
             }
             return RedirectToAction("Index",userResult);
         }
@@ -91,6 +111,11 @@ namespace GestionStylo.Controllers
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme).Wait();
 
             return RedirectToAction("Index","Stylo");
+        }
+
+        public IActionResult Access() 
+        { 
+            return View();
         }
     }
 }

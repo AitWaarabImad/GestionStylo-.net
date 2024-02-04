@@ -14,7 +14,7 @@ namespace GestionStylo
             .AddCookie(options =>
             {
                 options.LoginPath = "/User/Login";
-                options.AccessDeniedPath = "/User/Acces";
+                options.AccessDeniedPath = "/User/Access";
             });
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -45,7 +45,7 @@ namespace GestionStylo
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Stylo}/{action=Index}/{id?}");
+                pattern: "{controller=User}/{action=Index}/{id?}");
 
             app.Run();
         }

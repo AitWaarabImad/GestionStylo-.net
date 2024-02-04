@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionStylo", "GestionStylo\GestionStylo.csproj", "{8D8C57E4-F025-4EA5-880E-8049C839B382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionStylo", "GestionStylo\GestionStylo.csproj", "{8D8C57E4-F025-4EA5-880E-8049C839B382}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{2E69410E-B5D0-4017-A55E-C3B56C2D22A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{2E69410E-B5D0-4017-A55E-C3B56C2D22A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{E29C6057-0D57-40D5-B593-74811505ED38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{E29C6057-0D57-40D5-B593-74811505ED38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{E6B3D6BB-6EC5-497D-8319-0B99A1B55164}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

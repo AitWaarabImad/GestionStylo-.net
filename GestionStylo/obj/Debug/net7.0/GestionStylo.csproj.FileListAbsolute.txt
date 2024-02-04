@@ -512,3 +512,4 @@ C:\Users\imad\Desktop\GestionDesStyloSS\GestionStylo\obj\Debug\net7.0\refint\Ges
 C:\Users\imad\Desktop\GestionDesStyloSS\GestionStylo\obj\Debug\net7.0\GestionStylo.pdb
 C:\Users\imad\Desktop\GestionDesStyloSS\GestionStylo\obj\Debug\net7.0\GestionStylo.genruntimeconfig.cache
 C:\Users\imad\Desktop\GestionDesStyloSS\GestionStylo\obj\Debug\net7.0\ref\GestionStylo.dll
+C:\Users\imad\Desktop\GestionDesStyloSS\GestionStylo\obj\Debug\net7.0\GestionStylo.sourcelink.json
