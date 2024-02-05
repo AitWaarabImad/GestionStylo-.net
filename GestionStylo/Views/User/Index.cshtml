@@ -9,13 +9,16 @@
 {
     <a asp-action="Add" asp-controller="Stylo" class="btn btn-primary">Ajouter un stylo</a>}
 <br />
-@foreach (var stylo in Model.stylos)
+<div class="row">
+    @foreach (var stylo in Model.stylos)
 {
 
 
     <br />
-    <div class="card" style="width: 18rem;">
-        <img src="@stylo.Photo" class="card-img-top" alt="Stylo Image">
+
+        <div class="col-md-4" >
+    <div class="card" style="width: 18rem;margin:10px;">
+        <img src="@stylo.Photo" class="card-img-top" style="max-height:200px;max-width:100%;" alt="Stylo Image">
         <div class="card-body">
             <h5 class="card-title">@stylo.Nom</h5>
 
@@ -35,9 +38,12 @@
             </div>
             }
         </div>
+    
+        <br />
     </div>
-    <br />
-}
+    </div>
+    }
+</div>
 
 
 

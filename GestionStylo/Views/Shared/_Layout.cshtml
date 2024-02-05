@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿@* <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -46,6 +46,71 @@
             </div>
         </nav>
     </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - GestionStylo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html> *@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GestionStylo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GestionStylo.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/54330/pen-emoji-clipart-xl.png" alt="mdo" width="32" height="32" style="background-color:darkseagreen" class="img-thumbnail">
+                <a asp-area="" asp-controller="User" asp-action="Index" class="navbar-brand">GestionStylo</a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a asp-area="" asp-controller="User" asp-action="Index" class="nav-link px-2 link-secondary">Home</a></li>
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name == "Admin")
+                    {
+                        <li><a asp-area="" asp-controller="Stylo" asp-action="CrudList" class="nav-link px-2 link-secondary">CrudList</a></li>
+                        <li><a asp-area="" asp-controller="Stylo" asp-action="Add" class="nav-link px-2 link-secondary">Add a stylo</a></li>
+                    }
+                    
+                    
+                </ul>
+
+                
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="dropdown text-end">
+                        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://img.freepik.com/free-photo/3d-rendering-zoom-call-avatar_23-2149556777.jpg?w=1060&t=st=1707091423~exp=1707092023~hmac=a54e88bb137749dca62eb011b75a42d78aa2fa170a7b287809b0f45be1148fa0" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small">
+                        <li><a class="dropdown-item" asp-controller="User" asp-action="Logout">Sign out</a></li>
+                    </ul>
+                    </div>
+                }
+                else
+                {
+                    <a asp-area="" asp-controller="User" asp-action="Login" class="nav-link px-2 link-body-emphasis">Login</a>
+                }
+            </div>
+        </div>
+    </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
