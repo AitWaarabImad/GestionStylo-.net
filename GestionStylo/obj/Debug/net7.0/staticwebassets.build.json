@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EP99fye5GfoCHQAsEcgCLBKIOrn/YA9xYNmSBPYEqEg=",
+  "Hash": "BiLClyxgMQViZRUefVUIwY6uWSZ+WI/W2rNXrHgulYM=",
   "Source": "GestionStylo",
   "BasePath": "_content/GestionStylo",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\imad\\Desktop\\GestionDesStyloSS\\GestionStylo\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\GestionStylo.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\imad\\Desktop\\GestionDesStyloSS\\GestionStylo\\wwwroot\\122.jpg",
+      "SourceId": "GestionStylo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\imad\\Desktop\\GestionDesStyloSS\\GestionStylo\\wwwroot\\",
+      "BasePath": "_content/GestionStylo",
+      "RelativePath": "122.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\122.jpg"
     },
     {
       "Identity": "C:\\Users\\imad\\Desktop\\GestionDesStyloSS\\GestionStylo\\wwwroot\\css\\site.css",

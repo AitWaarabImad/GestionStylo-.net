@@ -1,6 +1,27 @@
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.p-3[b-qr77yq4yg2] {
+    padding: 1rem !important;
+}
+
+.mb-3[b-qr77yq4yg2] {
+    margin-bottom: 1rem !important;
+}
+
+.border-bottom[b-qr77yq4yg2] {
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+
+*[b-qr77yq4yg2], [b-qr77yq4yg2]::after, [b-qr77yq4yg2]::before {
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+header[b-qr77yq4yg2] {
+    display: block;
+}
+
 a.navbar-brand[b-qr77yq4yg2] {
   white-space: normal;
   text-align: center;

@@ -1,7 +1,7 @@
-﻿@model List<DAL.Entities.Stylo>
+﻿ @model List<DAL.Entities.Stylo>
 @{
     ViewData["Title"] = "Home Page";
-}
+}@*
 <h2>Liste des Stylos</h2>
 <br />
 <a href="Stylo/Add" class="btn btn-primary">Ajouter un stylo</a>
@@ -32,4 +32,52 @@
         </div>
     </div>
     <br />
+} *@
+
+
+
+<h2>Bienvenue</h2>
+
+
+<h2>Liste des Stylos</h2>
+<br />
+@if (User.Identity.IsAuthenticated && User.Identity.Name == "Admin")
+{
+    <a asp-action="Add" asp-controller="Stylo" class="btn btn-primary">Ajouter un stylo</a>
 }
+<br />
+<div class="row">
+    @foreach (var stylo in Model)
+    {
+
+
+        <br />
+
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;margin:10px; ">
+                <img src="@stylo.Photo" class="card-img-top" style="max-height:200px;max-width:100%;" alt="Stylo Image">
+                <div class="card-body">
+                    <h5 class="card-title">@stylo.Nom</h5>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Prix : @stylo.Prix DHS</li>
+                        <li class="list-group-item">Marque : @stylo.NomMarque</li>
+                        <li class="list-group-item">Type : @stylo.NomType</li>
+
+                    </ul>
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name == "Admin")
+                    {
+                        <div class="d-grid gap-2">
+                            <a href="Stylo/Update/@stylo.Id" class="btn btn-primary">Update</a>
+                            <form class="d-grid gap-2" asp-action="Delete" method="post" asp-route-id="@stylo.Id" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce stylo?')">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+
+                <br />
+            </div>
+        </div>
+    }
+</div>
